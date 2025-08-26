@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ChevronDown,
   ShoppingCart,
@@ -20,13 +20,16 @@ import {
 import * as Linking from 'expo-linking';
 import KeyboardAvoidingAnimatedView from '@/components/KeyboardAvoidingAnimatedView';
 import products from '../productData';
+import { useLocalSearchParams } from 'expo-router';
 
 export default function OrderPage() {
   const insets = useSafeAreaInsets();
+  const params = useLocalSearchParams();
+
   const [orderForm, setOrderForm] = useState({
     name: '',
     phone: '',
-    product: '',
+    product: params.product || '', // <-- set initial product from params
     quantity: '1',
     deliveryType: 'delivery',
     address: '',
@@ -123,6 +126,15 @@ Please confirm this order. Thank you! 🐥
         );
       });
   };
+
+  useEffect(() => {
+    if (params.product) {
+      setOrderForm((prev) => ({
+        ...prev,
+        product: params.product,
+      }));
+    }
+  }, [params.product]);
 
   return (
     <KeyboardAvoidingAnimatedView style={{ flex: 1 }} behavior="padding">
@@ -333,28 +345,31 @@ Please confirm this order. Thank you! 🐥
                       shadowOpacity: 0.1,
                       shadowRadius: 4,
                       elevation: 3,
+                      maxHeight: 250, // Set a max height for the dropdown
                     }}
                   >
-                    {products.map((product, index) => (
-                      <TouchableOpacity
-                        key={index}
-                        style={{
-                          paddingHorizontal: 16,
-                          paddingVertical: 12,
-                          borderBottomWidth:
-                            index < products.length - 1 ? 1 : 0,
-                          borderBottomColor: '#F3F4F6',
-                        }}
-                        onPress={() => {
-                          handleInputChange('product', product.name);
-                          setShowProductDropdown(false);
-                        }}
-                      >
-                        <Text style={{ fontSize: 16, color: '#1F2937' }}>
-                          {product.name}
-                        </Text>
-                      </TouchableOpacity>
-                    ))}
+                    <ScrollView nestedScrollEnabled={true}>
+                      {products.map((product, index) => (
+                        <TouchableOpacity
+                          key={index}
+                          style={{
+                            paddingHorizontal: 16,
+                            paddingVertical: 12,
+                            borderBottomWidth:
+                              index < products.length - 1 ? 1 : 0,
+                            borderBottomColor: '#F3F4F6',
+                          }}
+                          onPress={() => {
+                            handleInputChange('product', product.name);
+                            setShowProductDropdown(false);
+                          }}
+                        >
+                          <Text style={{ fontSize: 16, color: '#1F2937' }}>
+                            {product.name}
+                          </Text>
+                        </TouchableOpacity>
+                      ))}
+                    </ScrollView>
                   </View>
                 )}
               </View>

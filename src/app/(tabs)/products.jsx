@@ -20,8 +20,14 @@ export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const navigateToOrder = (productName = null) => {
-    // Navigate to order page, optionally with a specific product
-    router.push('/(tabs)/order');
+    if (productName) {
+      router.push({
+        pathname: '/(tabs)/order',
+        params: { product: productName },
+      });
+    } else {
+      router.push('/(tabs)/order');
+    }
   };
 
   const filteredProducts = products.filter((product) => {
