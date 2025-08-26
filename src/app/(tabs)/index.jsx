@@ -35,33 +35,33 @@ export default function HomePage() {
   const todaysDeals = [
     {
       id: 1,
-      title: 'Premium Broiler Feed',
-      originalPrice: '₹2,500',
-      salePrice: '₹2,200',
-      discount: '12% OFF',
+      title: 'Premium Sonali Finisher Feed',
+      originalPrice: '₹2,000',
+      salePrice: '₹1,900',
+      discount: '5% OFF',
       stock: 'Fresh Today',
       image:
-        'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400&h=300&fit=crop',
+        'https://res.cloudinary.com/dzpwirstm/image/upload/HP_sonali_starter.jpg',
     },
     {
       id: 2,
-      title: 'Layer Feed Special',
-      originalPrice: '₹2,300',
-      salePrice: '₹2,000',
-      discount: '13% OFF',
+      title: 'Healthy Day-Old Chicks(Layer)',
+      originalPrice: '₹60',
+      salePrice: '₹55',
+      discount: '9% OFF',
       stock: 'In Stock',
       image:
-        'https://images.unsplash.com/photo-1571414329451-9cb3d7b77880?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1546833629-86e5534d5496?q=80&w=1170&auto=format&fit=crop',
     },
     {
       id: 3,
-      title: 'Healthy Chicks',
-      originalPrice: '₹50',
-      salePrice: '₹45',
-      discount: '10% OFF',
+      title: 'Healthy Old-Day Ducklings',
+      originalPrice: '₹120',
+      salePrice: '₹100',
+      discount: '17% OFF',
       stock: 'Fresh Today',
       image:
-        'https://images.unsplash.com/photo-1548479652-d3b1e92b4a2d?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1442689859438-97407280183f?q=80&w=1170&auto=format&fit=crop',
     },
   ];
 

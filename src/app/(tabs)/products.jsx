@@ -11,8 +11,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useState } from 'react';
 import { Search, Filter, ShoppingCart, Clock, Star } from 'lucide-react-native';
 import { router } from 'expo-router';
-import { products } from './productData';
-import { categories } from './productData';
+import products from '../productData';
+import { categories } from '../productData';
 
 export default function ProductsPage() {
   const insets = useSafeAreaInsets();

@@ -19,6 +19,7 @@ import {
 } from 'lucide-react-native';
 import * as Linking from 'expo-linking';
 import KeyboardAvoidingAnimatedView from '@/components/KeyboardAvoidingAnimatedView';
+import products from '../productData';
 
 export default function OrderPage() {
   const insets = useSafeAreaInsets();
@@ -36,15 +37,6 @@ export default function OrderPage() {
 
   const [showProductDropdown, setShowProductDropdown] = useState(false);
   const [showDatePicker, setShowDatePicker] = useState(false);
-
-  const products = [
-    'Premium Broiler Feed (50kg)',
-    'Layer Feed Special (25kg)',
-    'Healthy Day-Old Chicks (10 pieces)',
-    'Duckling Starter Feed (25kg)',
-    'Farm Fresh Eggs (30 pieces)',
-    'Pig Grower Feed (50kg)',
-  ];
 
   const timeSlots = [
     '8:00 AM - 10:00 AM',
@@ -354,12 +346,12 @@ Please confirm this order. Thank you! 🐥
                           borderBottomColor: '#F3F4F6',
                         }}
                         onPress={() => {
-                          handleInputChange('product', product);
+                          handleInputChange('product', product.name);
                           setShowProductDropdown(false);
                         }}
                       >
                         <Text style={{ fontSize: 16, color: '#1F2937' }}>
-                          {product}
+                          {product.name}
                         </Text>
                       </TouchableOpacity>
                     ))}

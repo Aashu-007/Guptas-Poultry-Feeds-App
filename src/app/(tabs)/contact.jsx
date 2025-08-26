@@ -14,6 +14,7 @@ import {
   MessageCircle,
   Mail,
   Navigation,
+  Instagram,
 } from 'lucide-react-native';
 
 export default function ContactPage() {
@@ -45,6 +46,18 @@ export default function ContactPage() {
     Linking.openURL(url);
   };
 
+  const openInstagram = async () => {
+    const url = 'https://instagram.com/guptaspoultryfeeds';
+    // Try to open in Instagram app first
+    const appUrl = 'instagram://user?username=guptaspoultryfeeds';
+    const supported = await Linking.canOpenURL(appUrl);
+    if (supported) {
+      Linking.openURL(appUrl);
+    } else {
+      Linking.openURL(url);
+    }
+  };
+
   const contactMethods = [
     {
       icon: MessageCircle,
@@ -69,6 +82,14 @@ export default function ContactPage() {
       description: 'Send detailed inquiries',
       action: sendEmail,
       color: '#3B82F6',
+    },
+    {
+      icon: Instagram,
+      title: 'Instagram',
+      subtitle: '@GuptasPoultryFeeds',
+      description: 'Follow Us On Instagram',
+      action: openInstagram,
+      color: '#E1306C',
     },
     {
       icon: Navigation,
@@ -527,7 +548,7 @@ export default function ContactPage() {
             }}
           >
             💚 Thank you for choosing Gupta's Poultry Feeds! We're committed to
-            providing the best quality feeds and service to farmers across South
+            providing the best quality feeds and service to farmers across
             Sikkim.
           </Text>
         </View>
