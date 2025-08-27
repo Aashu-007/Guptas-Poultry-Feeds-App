@@ -8,7 +8,6 @@ A mobile solution for poultry and livestock feed management. This React Native a
 - 📦 **Order Management**: Place and track orders with ease.
 - 🔍 **Search & Filter**: Quickly find products by category or name.
 - 📱 **Mobile-First UI**: Optimized for smooth performance and usability on Android/iOS.
-- 🔔 **Notifications** _(optional)_: Stay updated on order status and promotions.
 
 ## 🛠️ Tech Stack
 
