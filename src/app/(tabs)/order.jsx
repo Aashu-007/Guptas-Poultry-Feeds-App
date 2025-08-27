@@ -19,7 +19,7 @@ import {
 } from 'lucide-react-native';
 import * as Linking from 'expo-linking';
 import KeyboardAvoidingAnimatedView from '@/components/KeyboardAvoidingAnimatedView';
-import products from '../productData';
+import products from '../constants/productData';
 import { useLocalSearchParams } from 'expo-router';
 
 export default function OrderPage() {
